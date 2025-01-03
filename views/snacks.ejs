@@ -1,0 +1,59 @@
+<%- include('_head') -%>   
+<body>
+    <%- include('_header') -%> 
+
+    <div class="inner-div">
+    <h1>Snacks</h1>
+
+    <!-- Filteren op categorie en type -->
+    <form method="GET" action="/snacks">
+        <label for="catagory_id">Filter op categorie:</label>
+        <select id="catagory_id" name="catagory_id" onchange="this.form.submit()">
+            <option value="">Alle categorieën</option>
+            <% categories.forEach(category => { %>
+                <option value="<%= category.id %>" 
+                    <%= selectedCategory == category.id ? 'selected' : '' %>>
+                    <%= category.name %>
+                </option>
+            <% }) %>
+        </select>
+
+        <label for="type_id">Filter op type:</label>
+        <select id="type_id" name="type_id" onchange="this.form.submit()">
+            <option value="">Alle types</option>
+            <% types.forEach(type => { %>
+                <option value="<%= type.id %>" 
+                    <%= selectedType == type.id ? 'selected' : '' %>>
+                    <%= type.name %>
+                </option>
+            <% }) %>
+        </select>
+    </form>
+
+    <!-- Tabel met snacks -->
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Naam</th>
+                <th>Prijs</th>
+                <th>Categorie</th>
+                <th>Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% snacks.forEach(snack => { %>
+                <tr>
+                    <td><%= snack.id %></td>
+                    <td><%= snack.name %></td>
+                    <td>€<%= parseFloat(snack.price).toFixed(2) %></td>
+                    <td><%= snack.category_name %></td>
+                    <td><%= snack.type_name %></td>
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+
+
+</div>
+</body>

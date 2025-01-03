@@ -1,0 +1,34 @@
+<%- include('_head') -%>   
+<body>
+    <%- include('_header') -%>
+    <div class="inner-div">
+    <h1>Snack toevoegen</h1>
+    <form action="/api/snack" method="POST">
+        <div>
+            <label for="name">Naam:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+            <label for="price">Prijs:</label>
+            <input type="number" id="price" name="price" step="0.01" required>
+        </div>
+        <div>
+            <label for="catagory_id">Categorie:</label>
+            <select id="catagory_id" name="catagory_id" required>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category.id %>"><%= category.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="type_id">Type:</label>
+            <select id="type_id" name="type_id" required>
+                <% types.forEach(type => { %>
+                    <option value="<%= type.id %>"><%= type.name %></option>
+                <% }) %>
+            </select>
+        </div>
+        <input type="submit" value="Toevoegen">
+    </form>
+</div>
+</body>
