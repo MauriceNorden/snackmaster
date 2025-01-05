@@ -15,10 +15,12 @@
   "author": "Maurice Norden",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
-    "mysql2": "^3.12.0"
+    "express-session": "^1.18.1",
+    "sqlite3": "^5.1.7"
   }
 }

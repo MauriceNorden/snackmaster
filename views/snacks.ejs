@@ -44,7 +44,7 @@
         <tbody>
             <% snacks.forEach(snack => { %>
                 <tr>
-                    <td><%= snack.id %></td>
+                    <td><%= snack.rowid %></td>
                     <td><%= snack.name %></td>
                     <td>€<%= parseFloat(snack.price).toFixed(2) %></td>
                     <td><%= snack.category_name %></td>

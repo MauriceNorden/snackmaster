@@ -4,4 +4,16 @@
     <a href="/snacks">Bestellen</a>
     <a href="/add-snack">Toevoegen</a>
     <a href="/edit-snack">Aanpassen</a>
+
+
+    <div class="right">
+    <% if (username) { %>
+        <p>Hallo, <strong><%= username %></strong>! 👋</p>
+        <form action="/auth/logout" method="POST">
+            <input type="submit" value="Uitloggen">
+        </form>
+    <% } else { %>
+        <p>Je bent niet ingelogd. <a href="/login">Inloggen</a> of <a href="/register">Registreren</a></p>
+    <% } %>
+</div>
 </div>

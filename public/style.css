@@ -38,6 +38,10 @@ h1 {
 
 }
 
+.header .right{
+  float: right;
+}
+
 
 input[type=text] {
     width: 100%;
@@ -48,7 +52,7 @@ input[type=text] {
   }
 
 
-  input[type=button], input[type=submit], input[type=reset],input[type=number] {
+  input[type=button], input[type=submit], input[type=reset],input[type=number],input[type=password],input[type=email] {
     background-color: white;
     border: 1px solid black;
     color: black;

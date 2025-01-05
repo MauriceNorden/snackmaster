@@ -1,11 +1,14 @@
-const mysql = require('mysql2');
-require('dotenv').config();
+const sqlite3 = require('sqlite3').verbose();
+const path = require('path');
 
-const pool = mysql.createPool({
-    host: process.env.DB_HOST,
-    user: process.env.DB_USER,
-    password: process.env.DB_PASSWORD,
-    database: process.env.DB_NAME,
+// Maak of open de database
+const db = new sqlite3.Database(path.join(__dirname, 'data.sqlite'), (err) => {
+    if (err) {
+        console.error('Fout bij verbinden met de database:', err.message);
+    } else {
+        console.log('Verbonden met SQLite database.');
+    }
 });
 
-module.exports = pool.promise();
+// Exporteer de database-verbinding
+module.exports = db;
