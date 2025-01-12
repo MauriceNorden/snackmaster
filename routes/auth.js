@@ -49,7 +49,7 @@ router.post('/login', (req, res) => {
             }
 
             // ✅ Gebruikersnaam opslaan in sessie
-            req.session.userId = user.id;
+            req.session.userId = user.row;
             req.session.username = user.username;
 
             res.redirect('/'); // Stuur de gebruiker naar de homepagina
